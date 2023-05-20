@@ -1,8 +1,11 @@
 {
-  "name": "task-app",
+  "name": "reddit-app",
   "version": "1.0.0",
-  "description": "The task manager application",
+  "description": "Reddit to share the ideas",
   "keywords": [],
+  "scripts": {
+    "start": "lerna run start:dev --stream"
+  },
   "author": "Parth Chauhan",
   "workspaces": [
     "packages/*"
