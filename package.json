@@ -1,0 +1,14 @@
+{
+  "name": "task-app",
+  "version": "1.0.0",
+  "description": "The task manager application",
+  "keywords": [],
+  "author": "Parth Chauhan",
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^6.6.2"
+  }
+}
