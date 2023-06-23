@@ -15,6 +15,7 @@ importers:
       '@nestjs-query/query-typeorm': 0.27.0
       '@nestjs/cli': 7.4.1
       '@nestjs/common': 7.6.5
+      '@nestjs/config': ^3.0.0
       '@nestjs/core': 7.6.5
       '@nestjs/graphql': 7.9.1
       '@nestjs/platform-express': 7.4.2
@@ -31,6 +32,7 @@ importers:
       class-transformer: 0.3.1
       class-validator: ^0.13.0
       dataloader: 2.0.0
+      dotenv: ^16.3.1
       eslint: ^8.0.1
       eslint-config-prettier: ^8.3.0
       eslint-plugin-prettier: ^4.0.0
@@ -55,6 +57,7 @@ importers:
       '@nestjs-query/query-graphql': 0.27.0_fntwevz56rig3ppnc3olu3lxpu
       '@nestjs-query/query-typeorm': 0.27.0_jkegv5jul4pub2rformfbugj3a
       '@nestjs/common': 7.6.5_2qhvf3dgt7spf3zdqc7zq7doz4
+      '@nestjs/config': 3.0.0_6vc5s43ei72euwz4wfybxcc35m
       '@nestjs/core': 7.6.5_2j5ib6sfkqocrimqdzoo5wt6ii
       '@nestjs/graphql': 7.9.1_pujpiw25lgilph635utq6gqfym
       '@nestjs/platform-express': 7.4.2_bqffpt2hqgaic5mhohfkxablde
@@ -79,6 +82,7 @@ importers:
       '@types/supertest': 2.0.12
       '@typescript-eslint/eslint-plugin': 5.59.6_4qbuxpmdupj46lq2zjlghng6yy
       '@typescript-eslint/parser': 5.59.6_5ujgynla27k2qkzlnkldjwsutm
+      dotenv: 16.3.1
       eslint: 8.41.0
       eslint-config-prettier: 8.8.0_eslint@8.41.0
       eslint-plugin-prettier: 4.2.1_xcqkel4mpum3npntysob2xmn54
@@ -1564,6 +1568,20 @@ packages:
       uuid: 8.3.2
     transitivePeerDependencies:
       - debug
+
+  /@nestjs/config/3.0.0_6vc5s43ei72euwz4wfybxcc35m:
+    resolution: {integrity: sha512-fzASk1Uv6AjdE6uA1na8zpqRCXAhRpcfgpCVv3SAKlgJ3VR3bEjcI4G17WHLgLBsmPzI1ofdkSI451WLD1F1Rw==}
+    peerDependencies:
+      '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
+      reflect-metadata: ^0.1.13
+    dependencies:
+      '@nestjs/common': 7.6.5_2qhvf3dgt7spf3zdqc7zq7doz4
+      dotenv: 16.1.4
+      dotenv-expand: 10.0.0
+      lodash: 4.17.21
+      reflect-metadata: 0.1.13
+      uuid: 9.0.0
+    dev: false
 
   /@nestjs/core/7.6.5_2j5ib6sfkqocrimqdzoo5wt6ii:
     resolution: {integrity: sha512-syRpXT09RDMySs1BLQSXJfq1NXGfG4VmF9hZYGef+/QWqTRfSMEDEH5MsCCLt2lK3AZnOXE9BQwWKeNBhKLplA==}
@@ -3595,7 +3613,7 @@ packages:
       apollo-server-types: 0.5.1_graphql@14.5.8
       async-retry: 1.3.3
       graphql: 14.5.8
-      uuid: 8.3.1
+      uuid: 8.3.2
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -5701,9 +5719,24 @@ packages:
       is-obj: 2.0.0
     dev: true
 
+  /dotenv-expand/10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
+    engines: {node: '>=12'}
+    dev: false
+
   /dotenv/10.0.0:
     resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
     engines: {node: '>=10'}
+    dev: true
+
+  /dotenv/16.1.4:
+    resolution: {integrity: sha512-m55RtE8AsPeJBpOIFKihEmqUcoVncQIwo7x9U8ZwLEZw9ZpXboz2c+rvog+jUaJvVrZ5kBOeYQBX5+8Aa/OZQw==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /dotenv/16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
     dev: true
 
   /dotenv/6.2.0:
@@ -8996,7 +9029,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols/3.0.0:
     resolution: {integrity: sha512-dSkNGuI7iG3mfvDzUuYZyvk5dD9ocYCYzNU6CYDE6+Xqd+gwme6Z00NS3dUh8mq/73HaEtT7m6W+yUPtU6BZnQ==}
@@ -13057,6 +13089,11 @@ packages:
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
