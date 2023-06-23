@@ -1,7 +1,7 @@
 {
   "name": "reddit-app",
   "version": "1.0.0",
-  "description": "Reddit to share the ideas",
+  "description": "Reddit, an idea sharing platform",
   "keywords": [],
   "scripts": {
     "start": "lerna run start:dev --stream"
