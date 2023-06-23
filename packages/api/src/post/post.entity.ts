@@ -18,8 +18,8 @@ export class Post {
   text: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  created: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updated: Date;
 }

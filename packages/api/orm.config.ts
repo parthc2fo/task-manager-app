@@ -15,6 +15,10 @@ const ORMConfig: TypeOrmModuleOptions = {
   database: configService.get('POSTGRES_DB'),
   entities: ['dist/**/*.entity{.ts,.js}'],
   migrationsTableName: 'migrations',
+  migrations: ['dist/**/migrations/*.js'],
+  cli: {
+    migrationsDir: 'src/migrations',
+  },
 };
 
 // LINK: https://github.com/typeorm/typeorm/issues/4068#issuecomment-491500829
