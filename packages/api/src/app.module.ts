@@ -3,12 +3,12 @@ import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
-import { dbConfig } from '../config/db-config';
 import { join } from 'path';
+import * as typeOrmConfigration from 'orm.config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(dbConfig),
+    TypeOrmModule.forRoot(typeOrmConfigration),
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
