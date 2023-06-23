@@ -2,6 +2,261 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""Cursor for paging through collections"""
+scalar ConnectionCursor
+
+input CreateManyPostsInput {
+  """Array of records to create"""
+  posts: [CreatePost!]!
+}
+
+input CreateOnePostInput {
+  """The record to create"""
+  post: CreatePost!
+}
+
+input CreatePost {
+  id: ID
+  title: String
+  created: DateTime
+  updated: DateTime
+}
+
+input CursorPaging {
+  """Paginate before opaque cursor"""
+  before: ConnectionCursor
+
+  """Paginate after opaque cursor"""
+  after: ConnectionCursor
+
+  """Paginate first"""
+  first: Int
+
+  """Paginate last"""
+  last: Int
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DeleteManyPostsInput {
+  """Filter to find records to delete"""
+  filter: PostDeleteFilter!
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+input DeleteOnePostInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input IDFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: ID
+  neq: ID
+  gt: ID
+  gte: ID
+  lt: ID
+  lte: ID
+  like: ID
+  notLike: ID
+  iLike: ID
+  notILike: ID
+  in: [ID!]
+  notIn: [ID!]
+}
+
+type Mutation {
+  deleteOnePost(input: DeleteOnePostInput!): PostDeleteResponse!
+  deleteManyPosts(input: DeleteManyPostsInput!): DeleteManyResponse!
+  updateOnePost(input: UpdateOnePostInput!): Post!
+  updateManyPosts(input: UpdateManyPostsInput!): UpdateManyResponse!
+  createOnePost(input: CreateOnePostInput!): Post!
+  createManyPosts(input: CreateManyPostsInput!): [Post!]!
+}
+
+type PageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+
+  """The cursor of the first returned record."""
+  startCursor: ConnectionCursor
+
+  """The cursor of the last returned record."""
+  endCursor: ConnectionCursor
+}
+
+type Post {
+  id: ID!
+  title: String!
+  created: DateTime!
+  updated: DateTime!
+}
+
+type PostAggregateGroupBy {
+  id: ID
+  title: String
+}
+
+type PostAvgAggregate {
+  id: Float
+}
+
+type PostConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [PostEdge!]!
+}
+
+type PostCountAggregate {
+  id: Int
+  title: Int
+}
+
+input PostDeleteFilter {
+  and: [PostDeleteFilter!]
+  or: [PostDeleteFilter!]
+  id: IDFilterComparison
+  title: StringFieldComparison
+}
+
+type PostDeleteResponse {
+  id: ID
+  title: String
+  created: DateTime
+  updated: DateTime
+}
+
+type PostEdge {
+  """The node containing the Post"""
+  node: Post!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+input PostFilter {
+  and: [PostFilter!]
+  or: [PostFilter!]
+  id: IDFilterComparison
+  title: StringFieldComparison
+}
+
+type PostMaxAggregate {
+  id: ID
+  title: String
+}
+
+type PostMinAggregate {
+  id: ID
+  title: String
+}
+
+input PostSort {
+  field: PostSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum PostSortFields {
+  id
+  title
+}
+
+type PostSumAggregate {
+  id: Float
+}
+
+input PostUpdateFilter {
+  and: [PostUpdateFilter!]
+  or: [PostUpdateFilter!]
+  id: IDFilterComparison
+  title: StringFieldComparison
+}
+
 type Query {
   getHello: String!
+  post(
+    """The id of the record to find."""
+    id: ID!
+  ): Post
+  posts(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: PostFilter = {}
+
+    """Specify to sort results."""
+    sorting: [PostSort!] = []
+  ): PostConnection!
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+input StringFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: String
+  neq: String
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  like: String
+  notLike: String
+  iLike: String
+  notILike: String
+  in: [String!]
+  notIn: [String!]
+}
+
+input UpdateManyPostsInput {
+  """Filter used to find fields to update"""
+  filter: PostUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdatePost!
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+input UpdateOnePostInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdatePost!
+}
+
+input UpdatePost {
+  id: ID
+  title: String
+  created: DateTime
+  updated: DateTime
 }
