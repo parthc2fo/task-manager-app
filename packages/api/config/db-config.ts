@@ -8,11 +8,6 @@ export const dbConfig: TypeOrmModuleOptions = {
   password: '12345',
   database: 'reddit_app',
   dropSchema: false,
-  entities: ['dist/**/*.entity{.ts,.js}'], // path to domain classes
+  entities: ['dist/**/*.entity{.ts,.js}'],
   migrationsTableName: 'migrations',
-  migrations: ['./src/migrations/**/*.ts'], // path to migrations directory
-  cli: {
-    migrationsDir: './src/migrations',
-  },
-  synchronize: true,
 };
