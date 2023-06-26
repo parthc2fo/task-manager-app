@@ -1,7 +1,7 @@
 import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
-import { PostDto } from './post.dto';
+import { PostDto } from './dto/post.dto';
 import { PostEntity } from './post.entity';
 
 @Module({
